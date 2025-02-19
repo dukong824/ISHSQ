@@ -25,9 +25,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const QuestionSchema = new mongoose.Schema({
     question: String,
-    answered: { type: Boolean, default: false }, // 답변 여부
-});
-  
+    answered: { type: Boolean, default: false },
+  }, { timestamps: true });
+
 const Question = mongoose.model('Question', QuestionSchema);
   
 // saveQuestion API

@@ -13,7 +13,7 @@ async function saveQuestion() {
   }
 
   // 서버에 질문 보내기
-  const response = await fetch('http://localhost:3000/saveQuestion', {
+  const response = await fetch('https://ishsq.onrender.com/saveQuestion', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ async function saveQuestion() {
 }
 
 async function loadQuestions() {
-  const response = await fetch('http://localhost:3000/getQuestions');
+  const response = await fetch('https://ishsq.onrender.com/getQuestions');
   const questions = await response.json();
 
   const answerPostDiv = document.querySelector('.answerpost');
@@ -81,7 +81,7 @@ async function submitAnswer(questionId, answer) {
     return;
   }
 
-  const response = await fetch('http://localhost:3000/saveAnswer', {
+  const response = await fetch('https://ishsq.onrender.com/saveAnswer', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -108,11 +108,15 @@ window.onload = loadQuestions;
 // 서버에서 질문과 답변(있는 경우)을 가져와서 .post div에 표시하는 함수
 async function loadPosts() {
   try {
-    const response = await fetch('http://localhost:3000/getPosts');
+    const response = await fetch('https://ishsq.onrender.com/getPosts');
     if (!response.ok) {
       throw new Error("네트워크 응답에 문제가 있습니다.");
     }
     const posts = await response.json();
+
+    // 최신순(날짜 내림차순) 정렬
+    posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
     const postDiv = document.querySelector('.post');
     postDiv.innerHTML = ''; // 기존 내용 초기화
 
@@ -125,7 +129,7 @@ async function loadPosts() {
         
         // 질문 표시
         const questionElem = document.createElement('h3');
-        questionElem.textContent = "Q." + post.question;
+        questionElem.textContent = "Q. " + post.question;
         postItem.appendChild(questionElem);
         
         // 답변 표시
