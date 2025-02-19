@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISHSQ</title>
+    <link href="./style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
+  </head>
+
+
+  <body style="background-color:#F7F7F7">
+    <img src="./Bar.png" id="bar">
+    
+    <div class="post">
+      
+    </div>
+
+    <input type="button" class="btn" onclick="toggleModal()"/>
+    <script src="./hello.js" defer></script>
+
+    <div class="container hidden">
+      <div class="modal">
+        <textarea id="question" placeholder="질문을 입력하세요!"></textarea>
+        <button type = "submit" class="send" onclick="saveQuestion()">보내기></button>
+        <button type = "button" class="close" onclick="toggleModal()">X</button>
+      </div>
+    </div>
+
+  </body>
+</html>

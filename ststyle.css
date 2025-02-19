@@ -1,0 +1,30 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+html, body {
+  height: 100%;  /* 부모 요소 높이 설정 */
+  margin: 0;
+}
+
+.container {
+  height : 100%; /*컨테이너 높이 꽉채우기*/
+  display: flex;
+  flex-direction: column; /*세로로배치*/
+  justify-content: center; /*가로 중앙정렬*/
+  align-items: center; /*세로 중앙정렬*/
+}
+  
+.stlogo {
+    width : 55%;
+    height : auto;
+    margin-bottom: 10%;
+}
+
+.stbtn {
+  margin-bottom: 10%;
+  color: #999999;
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: 6vw;
+  font-weight: 600;
+
+}
